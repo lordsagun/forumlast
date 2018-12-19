@@ -1,0 +1,55 @@
+
+
+
+{% load staticfiles %}
+
+
+<!-- navigation start -->
+
+<section class="navigation">
+    <div class="container">
+        <nav class="clearfix">
+            <div class="nav-header">
+                <div class="logo">
+                    <a href="index.html" class="brand"><img src="{% static 'images/logo.png' %}" src="logo"></a>
+                </div>
+                <button class="toggle-bar"><span></span></button>
+            </div>
+            <ul class="menu">
+                <li class="dropper"><a href="{% url 'syllabus' %}">Syllabus</a>
+                    <ul class="drop-menu">
+                      {% for s in sem %}
+                        <li><a href="{% url 'syllabus_detail' s.id %}">{{ s.semester_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="dropper"><a href="{% url 'old_questions' %}">Old Questions</a>
+                    <ul class="drop-menu">
+                      {% for s in sem %}
+                        <li><a href="{% url 'oldquestions_detail' s.id %}">{{ s.semester_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="dropper"><a href="{% url 'notes' %}">Notes</a>
+                    <ul class="drop-menu">
+                      {% for s in sem %}
+                        <li><a href="{% url 'notes_details' s.id %}">{{ s.semester_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="dropper"><a href="{% url 'solutions' %}">Solutions</a>
+                    <ul class="drop-menu">
+                      {% for s in sem %}
+                        <li><a href="{% url 'solutions_detail' s.id %}">{{ s.semester_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li><a href="#">Result</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="">Register</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+<!-- navigation end -->
